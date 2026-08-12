@@ -46,6 +46,16 @@ export default function HeroSection(): React.JSX.Element {
   // Target container for tracking scroll distance of the hero section
   const heroContainerRef = useRef<HTMLDivElement>(null);
 
+  const enquirySectionRef = useRef<HTMLDivElement | null>(null);
+
+  // 2. Define the click handler
+  const handleScroll = () => {
+    enquirySectionRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   // Hook into vertical scroll position inside heroContainerRef
   const { scrollYProgress } = useScroll({
     target: heroContainerRef,
@@ -304,7 +314,7 @@ export default function HeroSection(): React.JSX.Element {
 
       {/* Team Section */}
       <section className="min-h-screen flex justify-center items-center">
-        <div className="max-w-7xl w-full py-12">
+        <div className="max-w-7xl w-full px-6 py-12">
           <p className="text-xs uppercase tracking-widest text-[#8E8B82] font-semibold mb-2 text-center">
             THE EXPERTS
           </p>
@@ -332,9 +342,13 @@ export default function HeroSection(): React.JSX.Element {
       </section>
 
       {/* Contact Section */}
-      <section className="flex min-h-screen justify-center">
+      <section
+        className="flex min-h-screen justify-center"
+        ref={enquirySectionRef}
+        id="contact"
+      >
         {/* Contact Info */}
-        <div className="flex flex-col md:flex-row justify-between items-center max-w-7xl w-full px-6">
+        <div className="flex flex-col md:flex-row justify-between items-center max-w-7xl w-full px-6 py-12">
           <div className="min-w-[50%]">
             <div>
               <div className="flex items-center space-x-2 mb-3">
@@ -353,8 +367,8 @@ export default function HeroSection(): React.JSX.Element {
               </p>
             </div>
 
-            <div className="space-y-6">
-              <div className="flex items-center space-x-4">
+            <div className="pt-8">
+              <div className="flex items-center pb-4 gap-4">
                 <div className="w-12 h-12 bg-[#F5F5F5] flex items-center justify-center text-[#8E8B82]">
                   <Phone className="w-5 h-5" />
                 </div>
@@ -366,7 +380,7 @@ export default function HeroSection(): React.JSX.Element {
                 </div>
               </div>
 
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center pb-4 gap-4">
                 <div className="w-12 h-12 bg-[#F5F5F5] flex items-center justify-center text-[#8E8B82]">
                   <Mail className="w-5 h-5" />
                 </div>
@@ -380,7 +394,7 @@ export default function HeroSection(): React.JSX.Element {
                 </div>
               </div>
 
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center pb-4 gap-4">
                 <div className="w-12 h-12 bg-[#F5F5F5] flex items-center justify-center text-[#8E8B82]">
                   <MapPin className="w-5 h-5" />
                 </div>
@@ -397,7 +411,7 @@ export default function HeroSection(): React.JSX.Element {
           </div>
 
           {/* Contact Form */}
-          <div className="flex min-w-[50%] w-full justify-center items-start">
+          <div className="flex min-w-[50%] w-full justify-center items-start py-12">
             <div className="bg-[#F9F9FB] p-8 md:p-10 border border-[#EBEBF2]">
               <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                 <div>
@@ -485,16 +499,13 @@ export default function HeroSection(): React.JSX.Element {
           {/* SOCIAL ICONS */}
           <div className="flex items-center gap-5 text-neutral-300">
             <a href="#" className="hover:text-white transition-colors">
-              {/* <Instagram size={18} /> */}
+              <img src="/insta.svg" className="w-4 h-4" />
             </a>
             <a href="#" className="hover:text-white transition-colors">
-              {/* <Linkedin size={18} /> */}
+              <img src="/linkedIn.svg" className="w-4 h-4" />
             </a>
             <a href="#" className="hover:text-white transition-colors">
-              {/* <Facebook size={18} /> */}
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              <HelpCircle size={18} />
+              <img src="/fb.svg" className="w-4 h-4" />
             </a>
           </div>
         </section>
