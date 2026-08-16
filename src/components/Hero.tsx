@@ -20,27 +20,22 @@ const blogs = [
 ];
 
 const teamMembers = [
-  {
-    name: "MARCUS STERLING",
-    image:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600",
-  },
-  {
-    name: "ELENA ROSSI",
-    image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=600",
-  },
-  {
-    name: "DAVID CHEN",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600",
-  },
-  {
-    name: "SARAH JENKINS",
-    image:
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=600",
-  },
+  { name: "MUBEER C P", image: "/team/mubeer.webp" },
+  { name: "BUJAIR U K", image: "/team/bujair.webp" },
+  { name: "SIVARAM M D", image: "/team/sivaram.webp" },
+  { name: "ABHILASH", image: "/team/abhilash.webp" },
 ];
+
+const location = ["HAMDAN STREET", "ABHI DHABI, UAE"];
+const phone = "+971 5477 06299";
+const email = "location@example.com";
+const whatsapp =
+  "https://chat.whatsapp.com/Ep0dsIenEuOJbflSJHNeAa?s=sh&p=i&ilr=4&amv=2";
+const insta =
+  "https://www.instagram.com/yelmas_properties?igsh=MTN4aHhtZHprYXc4cg%3D%3D&utm_source=qr";
+const facebook = "https://www.facebook.com/share/1BYDGM75Kr/";
+const tiktok =
+  "https://www.tiktok.com/@yelmas_properties_llc?_r=1&_t=ZS-98uk0xrgLCu";
 
 export default function HeroSection(): React.JSX.Element {
   // Target container for tracking scroll distance of the hero section
@@ -303,9 +298,12 @@ export default function HeroSection(): React.JSX.Element {
                 </p>
               </div>
               <div className="pt-8">
-                <button className="bg-white text-neutral-900 text-xs font-bold uppercase tracking-wider px-6 py-3 rounded-sm hover:bg-neutral-200 transition">
-                  Download PDF
-                </button>
+                <a
+                  className="bg-white text-neutral-900 text-xs font-bold uppercase tracking-wider px-6 py-3 rounded-sm hover:bg-neutral-200 transition"
+                  href="/Presentation.pdf"
+                >
+                  Download Presentation
+                </a>
               </div>
             </div>
           </div>
@@ -376,7 +374,7 @@ export default function HeroSection(): React.JSX.Element {
                   <p className="text-xs uppercase tracking-wider text-[#8E8B82] font-semibold">
                     PHONE
                   </p>
-                  <p className="text-base text-[#333333]">+971 4 000 0000</p>
+                  <p className="text-base text-[#333333]">{phone}</p>
                 </div>
               </div>
 
@@ -388,9 +386,7 @@ export default function HeroSection(): React.JSX.Element {
                   <p className="text-xs uppercase tracking-wider text-[#8E8B82] font-semibold">
                     EMAIL
                   </p>
-                  <p className="text-base text-[#333333]">
-                    concierge@yelmasproperties.com
-                  </p>
+                  <p className="text-base text-[#333333]">{email}</p>
                 </div>
               </div>
 
@@ -402,9 +398,7 @@ export default function HeroSection(): React.JSX.Element {
                   <p className="text-xs uppercase tracking-wider text-[#8E8B82] font-semibold">
                     OFFICE
                   </p>
-                  <p className="text-base text-[#333333]">
-                    Marina Gate II, Dubai Marina, UAE
-                  </p>
+                  <p className="text-base text-[#333333]">{location}</p>
                 </div>
               </div>
             </div>
@@ -498,14 +492,17 @@ export default function HeroSection(): React.JSX.Element {
 
           {/* SOCIAL ICONS */}
           <div className="flex items-center gap-5 text-neutral-300">
-            <a href="#" className="hover:text-white transition-colors">
+            <a href={insta} className="hover:text-white transition-colors">
               <img src="/insta.svg" className="w-4 h-4" />
             </a>
-            <a href="#" className="hover:text-white transition-colors">
-              <img src="/linkedIn.svg" className="w-4 h-4" />
+            <a href={whatsapp} className="hover:text-white transition-colors">
+              <img src="/whatsapp.svg" className="w-4 h-4" />
             </a>
-            <a href="#" className="hover:text-white transition-colors">
+            <a href={facebook} className="hover:text-white transition-colors">
               <img src="/fb.svg" className="w-4 h-4" />
+            </a>
+            <a href={tiktok} className="hover:text-white transition-colors">
+              <img src="/tictok.svg" className="w-4 h-4.5" />
             </a>
           </div>
         </section>
@@ -545,15 +542,15 @@ export default function HeroSection(): React.JSX.Element {
               </ul>
             </div>
 
-            {/* LOCATIONS */}
+            {/* LOCATION */}
             <div className="space-y-3">
               <h4 className="text-xs font-bold uppercase tracking-widest text-white">
-                Locations
+                Location
               </h4>
               <ul className="space-y-2 text-xs text-neutral-300">
-                <li>Dubai Marina, UAE</li>
-                <li>Mayfair, London</li>
-                <li>Manhattan, NYC</li>
+                {location.map((row) => (
+                  <li>{row}</li>
+                ))}
               </ul>
             </div>
 
@@ -568,10 +565,10 @@ export default function HeroSection(): React.JSX.Element {
                     href="mailto:hello@yelmasproperties.com"
                     className="hover:text-white transition"
                   >
-                    hello@yelmasproperties.com
+                    {email}
                   </a>
                 </li>
-                <li>+971 4 000 0000</li>
+                <li>{phone}</li>
               </ul>
             </div>
           </div>
