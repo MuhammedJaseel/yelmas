@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Building2, Mail, MapPin, Phone } from "lucide-react";
 import { HelpCircle } from "lucide-react";
+import Form from "./Form";
 
 const blogs = [
   {
@@ -42,14 +43,6 @@ export default function HeroSection(): React.JSX.Element {
   const heroContainerRef = useRef<HTMLDivElement>(null);
 
   const enquirySectionRef = useRef<HTMLDivElement | null>(null);
-
-  // 2. Define the click handler
-  const handleScroll = () => {
-    enquirySectionRef.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  };
 
   // Hook into vertical scroll position inside heroContainerRef
   const { scrollYProgress } = useScroll({
@@ -405,64 +398,7 @@ export default function HeroSection(): React.JSX.Element {
           </div>
 
           {/* Contact Form */}
-          <div className="flex min-w-[50%] w-full justify-center items-start py-12">
-            <div className="bg-[#F9F9FB] p-8 md:p-10 border border-[#EBEBF2]">
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                <div>
-                  <label className="text-xs font-bold tracking-wider text-[#8E8B82] uppercase">
-                    FULL NAME
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="John Doe"
-                    className="w-full pt-4 bg-transparent border-b border-[#333333]/20 pb-2 text-base text-gray-800 placeholder-gray-300 focus:outline-none focus:border-gray-800 transition-colors"
-                  />
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="text-xs font-bold tracking-wider text-[#8E8B82] uppercase">
-                      EMAIL ADDRESS
-                    </label>
-                    <input
-                      type="email"
-                      placeholder="john@example.com"
-                      className="w-full pt-4 bg-transparent border-b border-[#333333]/20 pb-2 text-base text-gray-800 placeholder-gray-300 focus:outline-none focus:border-gray-800 transition-colors"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="text-xs font-bold tracking-wider text-[#8E8B82] uppercase">
-                      PHONE NUMBER
-                    </label>
-                    <input
-                      type="tel"
-                      placeholder="+971 50 000 0000"
-                      className="w-full pt-4 bg-transparent border-b border-[#333333]/20 pb-2 text-base text-gray-800 placeholder-gray-300 focus:outline-none focus:border-gray-800 transition-colors"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="text-xs font-bold tracking-wider text-[#8E8B82] uppercase">
-                    MESSAGE
-                  </label>
-                  <textarea
-                    rows={3}
-                    placeholder="How can we help you find your dream home?"
-                    className="w-full pt-4 bg-transparent border-b border-[#333333]/20 pb-2 text-base text-gray-800 placeholder-gray-300 focus:outline-none focus:border-gray-800 transition-colors resize-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="mt-4 bg-[#333333] hover:bg-black text-white font-bold tracking-widest px-8 py-4 transition-colors uppercase"
-                >
-                  SUBMIT ENQUIRY
-                </button>
-              </form>
-            </div>
-          </div>
+          <Form />
         </div>
       </section>
 
