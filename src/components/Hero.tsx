@@ -28,7 +28,7 @@ const teamMembers = [
 
 const location = ["HAMDAN STREET", "ABHI DHABI, UAE"];
 const phone = "+971 5477 06299";
-const email = "location@example.com";
+const email = "yelmaspropertiesllc@gmail.com";
 const whatsapp =
   "https://chat.whatsapp.com/Ep0dsIenEuOJbflSJHNeAa?s=sh&p=i&ilr=4&amv=2";
 const insta =
