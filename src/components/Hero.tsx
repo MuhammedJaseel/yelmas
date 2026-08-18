@@ -2,7 +2,6 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Building2, Mail, MapPin, Phone } from "lucide-react";
-import { HelpCircle } from "lucide-react";
 import Form from "./Form";
 
 const blogs = [
@@ -27,7 +26,7 @@ const teamMembers = [
   { name: "ABHILASH", image: "/team/abhilash.webp" },
 ];
 
-const location = ["HAMDAN STREET", "ABHI DHABI, UAE"];
+const location = ["HAMDAN STREET, ", "ABU DHABI, UAE"];
 const phone = "+971 5477 06299";
 const email = "yelmaspropertiesllc@gmail.com";
 const whatsapp =
