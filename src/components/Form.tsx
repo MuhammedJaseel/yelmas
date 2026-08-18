@@ -11,6 +11,7 @@ export default function Form() {
     };
     try {
       await axios.post("https://api.anolabs.site/yelmas/enquiry", body);
+      e.currentTarget.reset();
       alert("Successfully submitted, one of our agent will contact you soon");
     } catch (error) {
       alert("Error on submitting, try again");
