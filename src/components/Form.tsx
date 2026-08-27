@@ -1,6 +1,8 @@
 import axios from "axios";
+import { useRef } from "react";
 
 export default function Form() {
+  const formRef: any = useRef(null);
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     const body = {
@@ -11,16 +13,17 @@ export default function Form() {
     };
     try {
       await axios.post("https://api.anolabs.site/yelmas/enquiry", body);
-      e.currentTarget.reset();
+      formRef.current?.reset();
       alert("Successfully submitted, one of our agent will contact you soon");
     } catch (error) {
+      console.log(error);
       alert("Error on submitting, try again");
     }
   };
   return (
     <div className="flex min-w-[50%] w-full justify-center items-start py-12">
       <div className="bg-[#F9F9FB] p-8 md:p-10 border border-[#EBEBF2]">
-        <form className="space-y-6" onSubmit={handleSubmit}>
+        <form className="space-y-6" onSubmit={handleSubmit} ref={formRef}>
           <div>
             <label className="text-xs font-bold tracking-wider text-[#8E8B82] uppercase">
               FULL NAME
