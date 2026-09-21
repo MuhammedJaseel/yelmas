@@ -77,13 +77,13 @@ export default function HeroSection(): React.JSX.Element {
               <div className="flex">
                 <a
                   href="#about"
-                  className="text-[#333333] text-sm font-semibold p-2 cursor-pointer"
+                  className="text-[#333333] text-xs sm:text-sm font-semibold p-2 cursor-pointer"
                 >
                   ABOUT
                 </a>
                 <a
                   href="#teams"
-                  className="text-[#333333] text-sm font-semibold p-2 cursor-pointer"
+                  className="text-[#333333] text-xs sm:text-sm font-semibold p-2 cursor-pointer"
                 >
                   TEAM
                 </a>
@@ -91,7 +91,7 @@ export default function HeroSection(): React.JSX.Element {
               <div>
                 <a
                   href="#contact"
-                  className="text-[#333333] text-sm font-semibold p-2 cursor-pointer"
+                  className="text-[#333333] text-xs sm:text-sm font-semibold p-2 cursor-pointer"
                 >
                   ENQUIRY
                 </a>
@@ -101,7 +101,7 @@ export default function HeroSection(): React.JSX.Element {
               {/* Logo Mark */}
               <div className="mb-4 flex flex-col items-center">
                 <img src="logoBlack.svg" className="w-38 sm:w-46" />
-                <p className="tracking-[0.4em] text-[#333333]">PROPERTIES</p>
+                <p className="tracking-[0.4em] text-[#333333] text-sm sm:text-base">PROPERTIES</p>
                 <div className="mt-3 h-[2px] w-12 bg-gray-800" />
               </div>
 
@@ -112,7 +112,7 @@ export default function HeroSection(): React.JSX.Element {
                 value.
               </p>
             </div>
-            <div className="h-18 sm:h-25" />
+            <div className="h-25" />
           </div>
         </div>
       </section>
