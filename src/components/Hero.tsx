@@ -72,19 +72,47 @@ export default function HeroSection(): React.JSX.Element {
           </motion.div>
 
           {/* Centered Brand Content */}
-          <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center">
-            {/* Logo Mark */}
-            <div className="mb-4 flex flex-col items-center">
-              <img src="logoBlack.svg" />
-              <p className="tracking-[0.4em] text-[#333333]">PROPERTIES</p>
-              <div className="mt-3 h-[2px] w-12 bg-gray-800" />
+          <div className="relative z-10 flex h-full flex-col items-center justify-between px-4 text-center">
+            <div className="h-25 w-[94%] flex justify-between items-center">
+              <div className="flex">
+                <a
+                  href="#about"
+                  className="text-[#333333] text-sm font-semibold p-2 cursor-pointer"
+                >
+                  ABOUT
+                </a>
+                <a
+                  href="#teams"
+                  className="text-[#333333] text-sm font-semibold p-2 cursor-pointer"
+                >
+                  TEAM
+                </a>
+              </div>
+              <div>
+                <a
+                  href="#contact"
+                  className="text-[#333333] text-sm font-semibold p-2 cursor-pointer"
+                >
+                  ENQUIRY
+                </a>
+              </div>
             </div>
+            <div className="flex flex-col items-center">
+              {/* Logo Mark */}
+              <div className="mb-4 flex flex-col items-center">
+                <img src="logoBlack.svg" />
+                <p className="tracking-[0.4em] text-[#333333]">PROPERTIES</p>
+                <div className="mt-3 h-[2px] w-12 bg-gray-800" />
+              </div>
 
-            {/* Subtitle */}
-            <p className="max-w-xl text-sm leading-relaxed text-[#333333] sm:text-lg opacity-[70%]">
-              Discover premium properties, smart investments, and modern living
-              opportunities designed for comfort, luxury, and long-term value.
-            </p>
+              {/* Subtitle */}
+              <p className="max-w-xl text-sm leading-relaxed text-[#333333] sm:text-lg opacity-[70%]">
+                Discover premium properties, smart investments, and modern
+                living opportunities designed for comfort, luxury, and long-term
+                value.
+              </p>
+            </div>
+            <div />
           </div>
         </div>
       </section>
@@ -93,7 +121,10 @@ export default function HeroSection(): React.JSX.Element {
         ABOUT SECTION
         Normal page content that scrolls naturally after hero lock releases.
       */}
-      <section className="relative z-20 min-h-screen bg-[#f4f5f7] px-6 py-24 md:px-16 lg:px-24 flex items-center">
+      <section
+        className="relative z-20 min-h-screen bg-[#f4f5f7] px-6 py-24 md:px-16 lg:px-24 flex items-center"
+        id="about"
+      >
         <div className="mx-auto max-w-6xl">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             {/* Text Content */}
@@ -303,7 +334,10 @@ export default function HeroSection(): React.JSX.Element {
       </section>
 
       {/* Team Section */}
-      <section className="min-h-screen flex justify-center items-center">
+      <section
+        className="min-h-screen flex justify-center items-center"
+        id="teams"
+      >
         <div className="max-w-7xl w-full px-6 py-12">
           <p className="text-xs uppercase tracking-widest text-[#8E8B82] font-semibold mb-2 text-center">
             THE EXPERTS
@@ -338,8 +372,8 @@ export default function HeroSection(): React.JSX.Element {
         id="contact"
       >
         {/* Contact Info */}
-        <div className="flex flex-col md:flex-row justify-between items-center max-w-7xl w-full px-6 py-12">
-          <div className="min-w-[50%]">
+        <div className="flex flex-col md:flex-row justify-between max-w-7xl w-full px-6 py-12">
+          <div className="min-w-[50%] mt-10">
             <div>
               <div className="flex items-center space-x-2 mb-3">
                 <span className="w-8 h-[2px] bg-[#8E8B82]"></span>
