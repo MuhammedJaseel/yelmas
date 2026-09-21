@@ -73,7 +73,7 @@ export default function HeroSection(): React.JSX.Element {
 
           {/* Centered Brand Content */}
           <div className="relative z-10 flex h-full flex-col items-center justify-between px-4 text-center">
-            <div className="h-25 w-[94%] flex justify-between items-center">
+            <div className="h-18 sm:h-25 w-[94%] flex justify-between items-center">
               <div className="flex">
                 <a
                   href="#about"
@@ -100,7 +100,7 @@ export default function HeroSection(): React.JSX.Element {
             <div className="flex flex-col items-center">
               {/* Logo Mark */}
               <div className="mb-4 flex flex-col items-center">
-                <img src="logoBlack.svg" />
+                <img src="logoBlack.svg" className="w-38 sm:w-46" />
                 <p className="tracking-[0.4em] text-[#333333]">PROPERTIES</p>
                 <div className="mt-3 h-[2px] w-12 bg-gray-800" />
               </div>
@@ -112,7 +112,7 @@ export default function HeroSection(): React.JSX.Element {
                 value.
               </p>
             </div>
-            <div />
+            <div className="h-18 sm:h-25" />
           </div>
         </div>
       </section>
