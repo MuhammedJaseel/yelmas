@@ -105,7 +105,7 @@ export default function Form() {
                 name="furnishingStatus"
                 className="w-full pt-4 bg-transparent border-b border-[#333333]/20 pb-2 text-base text-gray-800 focus:outline-none focus:border-gray-800 transition-colors"
               >
-                <option>Select Furnishing Status</option>
+                <option value="">Select Furnishing Status</option>
                 <option value="Furnished">Furnished</option>
                 <option value="Semi-Furnished">Semi-Furnished</option>
                 <option value="Not-Furnished">Not-Furnished</option>
@@ -121,7 +121,7 @@ export default function Form() {
                 name="tenantType"
                 className="w-full pt-4 bg-transparent border-b border-[#333333]/20 pb-2 text-base text-gray-800 focus:outline-none focus:border-gray-800 transition-colors"
               >
-                <option>Select Tenant Type</option>
+                <option value="">Select Tenant Type</option>
                 <option value="Furnished">Family</option>
                 <option value="Semi-Furnished">Bachelor</option>
               </select>
