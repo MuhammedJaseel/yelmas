@@ -28,7 +28,7 @@ const teamMembers = [
 
 const location = ["HAMDAN STREET, ", "ABU DHABI, UAE"];
 const phone = "+971 5477 06299";
-const email = "yelmaspropertiesllc@gmail.com";
+const email = "info@yelmas.ae";
 const whatsapp =
   "https://chat.whatsapp.com/Ep0dsIenEuOJbflSJHNeAa?s=sh&p=i&ilr=4&amv=2";
 const insta =
