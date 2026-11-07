@@ -87,6 +87,12 @@ export default function HeroSection(): React.JSX.Element {
                 >
                   TEAM
                 </a>
+                <a
+                  href="#contact"
+                  className="text-[#333333] text-xs sm:text-sm font-semibold p-2 cursor-pointer"
+                >
+                  CONTACT US
+                </a>
               </div>
               <div>
                 <a
@@ -101,7 +107,9 @@ export default function HeroSection(): React.JSX.Element {
               {/* Logo Mark */}
               <div className="mb-4 flex flex-col items-center">
                 <img src="logoBlack.svg" className="w-38 sm:w-46" />
-                <p className="tracking-[0.4em] text-[#333333] text-sm sm:text-base">PROPERTIES</p>
+                <p className="tracking-[0.4em] text-[#333333] text-sm sm:text-base">
+                  PROPERTIES
+                </p>
                 <div className="mt-3 h-[2px] w-12 bg-gray-800" />
               </div>
 
@@ -485,7 +493,7 @@ export default function HeroSection(): React.JSX.Element {
         <section className="max-w-6xl mx-auto px-6 py-16">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 items-start">
             {/* BRAND / LOGO COLUMN */}
-            <img className="w-40" src="/logoWhite.svg" />
+            <img className="w-40" src="/logo-full.png" />
 
             {/* QUICK LINKS */}
             <div className="space-y-3">
@@ -544,7 +552,7 @@ export default function HeroSection(): React.JSX.Element {
 
           {/* COPYRIGHT */}
           <div className="mt-16 text-center text-[10px] uppercase tracking-widest text-neutral-400">
-            © 2024 YELMAS PROPERTIES. ALL RIGHTS RESERVED.
+            © 2026 YELMAS PROPERTIES. ALL RIGHTS RESERVED.
           </div>
         </section>
       </footer>
