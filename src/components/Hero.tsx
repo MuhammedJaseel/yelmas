@@ -493,7 +493,7 @@ export default function HeroSection(): React.JSX.Element {
         <section className="max-w-6xl mx-auto px-6 py-16">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 items-start">
             {/* BRAND / LOGO COLUMN */}
-            <img className="w-40" src="/logo-full.png" />
+            <img className="w-40" src="/logo-full.svg" />
 
             {/* QUICK LINKS */}
             <div className="space-y-3">
