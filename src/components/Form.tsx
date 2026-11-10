@@ -1,11 +1,22 @@
+"use client";
 import axios from "axios";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function Form() {
+  const [propertyType, setPropertyType] = useState<
+    "Residential" | "Commercial"
+  >("Residential");
   const formRef: any = useRef(null);
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const sanitizedValue = e.target.value.replace(/[^\d+\s]/g, "");
+    e.target.value = sanitizedValue;
+  };
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     const body = {
+      propertyType,
       name: e.target.name.value,
       email: e.target.email.value,
       phone: e.target.phone.value,
@@ -13,8 +24,9 @@ export default function Form() {
       budget: e.target.budget.value,
       furnishingStatus: e.target.furnishingStatus.value,
       tenantType: e.target.tenantType.value,
-      parkingRequired: e.target.parkingRequired.value,
       paymentSchedule: e.target.paymentSchedule.value,
+      ownership: e.target.ownership.value,
+      parkingRequired: e.target.parkingRequired.value,
       preferredLocation: e.target.preferredLocation.value,
       movingDate: e.target.movingDate.value,
       note: e.target.note.value,
@@ -31,6 +43,30 @@ export default function Form() {
   return (
     <div className="flex min-w-[50%] w-full justify-center items-start py-12">
       <div className="bg-[#F9F9FB] p-8 md:p-10 border border-[#EBEBF2]">
+        <div className="font-bold text-lg flex gap-3 mb-5 border-b border-[#333333]/20">
+          <div
+            className={
+              "py-2 cursor-pointer " +
+              (propertyType === "Residential"
+                ? "border-b-2 border-[#8e8b82]"
+                : "pb-2.5")
+            }
+            onClick={() => setPropertyType("Residential")}
+          >
+            Residential
+          </div>
+          <div
+            className={
+              "py-2 cursor-pointer " +
+              (propertyType === "Commercial"
+                ? "border-b-2 border-[#8e8b82]"
+                : "pb-2.5")
+            }
+            onClick={() => setPropertyType("Commercial")}
+          >
+            Commercial
+          </div>
+        </div>
         <form className="space-y-6" onSubmit={handleSubmit} ref={formRef}>
           <div>
             <label className="text-xs font-bold tracking-wider text-[#8E8B82] uppercase">
@@ -45,7 +81,7 @@ export default function Form() {
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-2 gap-6">
             <div>
               <label className="text-xs font-bold tracking-wider text-[#8E8B82] uppercase">
                 EMAIL ADDRESS
@@ -66,12 +102,15 @@ export default function Form() {
                 type="tel"
                 name="phone"
                 required
-                placeholder="+971 50 000 0000"
+                pattern="[0-9+\s]+"
+                inputMode="numeric"
+                onChange={handlePhoneChange}
+                placeholder="+971 52 000 0030"
                 className="w-full pt-4 bg-transparent border-b border-[#333333]/20 pb-2 text-base text-gray-800 placeholder-gray-300 focus:outline-none focus:border-gray-800 transition-colors"
               />
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-2 gap-6">
             <div>
               <label className="text-xs font-bold tracking-wider text-[#8E8B82] uppercase">
                 NATIONALITY
@@ -89,57 +128,60 @@ export default function Form() {
                 BUDGET
               </label>
               <input
-                type="text"
+                type="number"
                 name="budget"
                 placeholder="AED 150,000"
                 className="w-full pt-4 bg-transparent border-b border-[#333333]/20 pb-2 text-base text-gray-800 placeholder-gray-300 focus:outline-none focus:border-gray-800 transition-colors"
               />
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
-              <label className="text-xs font-bold tracking-wider text-[#8E8B82] uppercase">
-                Furnished / Non-Furnished
-              </label>
-              <select
-                name="furnishingStatus"
-                className="w-full pt-4 bg-transparent border-b border-[#333333]/20 pb-2 text-base text-gray-800 focus:outline-none focus:border-gray-800 transition-colors"
-              >
-                <option value="">Select Furnishing Status</option>
-                <option value="Furnished">Furnished</option>
-                <option value="Semi-Furnished">Semi-Furnished</option>
-                <option value="Not-Furnished">Not-Furnished</option>
-              </select>
-            </div>
+          {propertyType === "Residential" && (
+            <div className="grid sm:grid-cols-2 gap-6">
+              <div>
+                <label className="text-xs font-bold tracking-wider text-[#8E8B82] uppercase">
+                  Furnished / Non-Furnished
+                </label>
+                <select
+                  name="furnishingStatus"
+                  className="w-full pt-4 bg-transparent border-b border-[#333333]/20 pb-2 text-base text-gray-800 focus:outline-none focus:border-gray-800 transition-colors"
+                >
+                  <option value="">Select Furnishing Status</option>
+                  <option value="Furnished">Furnished</option>
+                  <option value="Semi-Furnished">Semi-Furnished</option>
+                  <option value="Not-Furnished">Not-Furnished</option>
+                </select>
+              </div>
 
-            {/* Tenant Type */}
-            <div>
-              <label className="text-xs font-bold tracking-wider text-[#8E8B82] uppercase">
-                Family or Bachelor
-              </label>
-              <select
-                name="tenantType"
-                className="w-full pt-4 bg-transparent border-b border-[#333333]/20 pb-2 text-base text-gray-800 focus:outline-none focus:border-gray-800 transition-colors"
-              >
-                <option value="">Select Tenant Type</option>
-                <option value="Furnished">Family</option>
-                <option value="Semi-Furnished">Bachelor</option>
-              </select>
+              {/* Tenant Type */}
+              <div>
+                <label className="text-xs font-bold tracking-wider text-[#8E8B82] uppercase">
+                  Family or Bachelor
+                </label>
+                <select
+                  name="tenantType"
+                  className="w-full pt-4 bg-transparent border-b border-[#333333]/20 pb-2 text-base text-gray-800 focus:outline-none focus:border-gray-800 transition-colors"
+                >
+                  <option value="">Select Tenant Type</option>
+                  <option value="Furnished">Family</option>
+                  <option value="Semi-Furnished">Bachelor</option>
+                </select>
+              </div>
             </div>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          )}
+          {/* Ownership & Payment Schedule */}
+          <div className="grid sm:grid-cols-2 gap-6">
             <div>
               <label className="text-xs font-bold tracking-wider text-[#8E8B82] uppercase">
-                Parking Required
+                Ownership
               </label>
               <div className="flex gap-6 pt-4 text-base text-gray-800">
                 <label className="flex items-center gap-2">
-                  <input type="radio" name="parkingRequired" value="Yes" />
-                  Yes
+                  <input type="radio" name="ownership" value="Buy" />
+                  Buy
                 </label>
                 <label className="flex items-center gap-2">
-                  <input type="radio" name="parkingRequired" value="No" />
-                  No
+                  <input type="radio" name="ownership" value="Rent" />
+                  Rent
                 </label>
               </div>
             </div>
@@ -160,7 +202,26 @@ export default function Form() {
               </select>
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {/* Parking */}
+          <div className="grid sm:grid-cols-2 gap-6">
+            <div>
+              <label className="text-xs font-bold tracking-wider text-[#8E8B82] uppercase">
+                Parking Required
+              </label>
+              <div className="flex gap-6 pt-4 text-base text-gray-800">
+                <label className="flex items-center gap-2">
+                  <input type="radio" name="parkingRequired" value="Yes" />
+                  Yes
+                </label>
+                <label className="flex items-center gap-2">
+                  <input type="radio" name="parkingRequired" value="No" />
+                  No
+                </label>
+              </div>
+            </div>
+            <div></div>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-6">
             <div>
               <label className="text-xs font-bold tracking-wider text-[#8E8B82] uppercase">
                 Preferred Location
