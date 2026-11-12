@@ -1,8 +1,10 @@
 "use client";
 import axios from "axios";
+import { CircleCheck } from "lucide-react";
 import { useRef, useState } from "react";
 
 export default function Form() {
+  const [success, setSuccess] = useState(false);
   const [propertyType, setPropertyType] = useState<
     "Residential" | "Commercial"
   >("Residential");
@@ -36,7 +38,8 @@ export default function Form() {
     try {
       await axios.post("https://api.anolabs.site/yelmas/enquiry", body);
       formRef.current?.reset();
-      alert("Successfully submitted, one of our agent will contact you soon");
+      setSuccess(true);
+      // alert("Successfully submitted, one of our agent will contact you soon");
     } catch (error) {
       console.log(error);
       alert("Error on submitting, try again");
@@ -289,6 +292,30 @@ export default function Form() {
           </button>
         </form>
       </div>
+      {success && (
+        <div
+          className="fixed top-0 left-0 right-0 bottom-0 bg-black/50 flex items-center justify-center p-2 z-20"
+          onClick={() => setSuccess(false)}
+        >
+          <div
+            className="max-w-md border border-black/50 rounded-xl bg-white p-8 py-12 flex flex-col items-center justify-center gap-3"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <CircleCheck size={80} color="#8E8B82" />
+            <div className="text-xl font-bold text-[#8E8B82]">SUBMITTED</div>
+            <div className="text-center text-[#2a2d32] text-sm">
+              Successfully submitted, one of our agent will contact you soon
+            </div>
+            {/* Button */}
+            <button
+              onClick={() => setSuccess(false)}
+              className="bg-[#2a2d32] px-8 py-3.5 text-xs font-bold tracking-widest text-white uppercase transition-colors hover:bg-black cursor-pointer mt-3"
+            >
+              Done
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
