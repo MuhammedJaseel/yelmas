@@ -26,7 +26,9 @@ export default function Form() {
       tenantType: e.target.tenantType.value,
       paymentSchedule: e.target.paymentSchedule.value,
       ownership: e.target.ownership.value,
-      parkingRequired: e.target.parkingRequired.value,
+      // parkingRequired: e.target.parkingRequired.value,
+      requiredSize: e.target.requiredSize.value,
+      businessType: e.target.businessType.value,
       preferredLocation: e.target.preferredLocation.value,
       movingDate: e.target.movingDate.value,
       note: e.target.note.value,
@@ -206,9 +208,15 @@ export default function Form() {
           <div className="grid sm:grid-cols-2 gap-6">
             <div>
               <label className="text-xs font-bold tracking-wider text-[#8E8B82] uppercase">
-                Parking Required
+                Required Size
               </label>
-              <div className="flex gap-6 pt-4 text-base text-gray-800">
+              <input
+                type="text"
+                name="requiredSize"
+                placeholder="e.g. 1000 SqFt"
+                className="w-full pt-4 bg-transparent border-b border-[#333333]/20 pb-2 text-base text-gray-800 placeholder-gray-300 focus:outline-none focus:border-gray-800 transition-colors"
+              />
+              {/* <div className="flex gap-6 pt-4 text-base text-gray-800">
                 <label className="flex items-center gap-2">
                   <input type="radio" name="parkingRequired" value="Yes" />
                   Yes
@@ -217,9 +225,23 @@ export default function Form() {
                   <input type="radio" name="parkingRequired" value="No" />
                   No
                 </label>
-              </div>
+              </div> */}
             </div>
-            <div></div>
+            {propertyType === "Commercial" ? (
+              <div>
+                <label className="text-xs font-bold tracking-wider text-[#8E8B82] uppercase">
+                  Business Type
+                </label>
+                <input
+                  type="text"
+                  name="businessType"
+                  placeholder="e.g. Logistics"
+                  className="w-full pt-4 bg-transparent border-b border-[#333333]/20 pb-2 text-base text-gray-800 placeholder-gray-300 focus:outline-none focus:border-gray-800 transition-colors"
+                />
+              </div>
+            ) : (
+              <div />
+            )}
           </div>
           <div className="grid sm:grid-cols-2 gap-6">
             <div>

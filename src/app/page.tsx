@@ -3,7 +3,7 @@
 import AboutSection from "@/components/About";
 import Form from "@/components/Form";
 import HeroSection from "@/components/Hero";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, Map, MapPin, Phone } from "lucide-react";
 import { useRef } from "react";
 
 const blogs = [
@@ -29,6 +29,8 @@ const teamMembers = [
 ];
 
 const location = ["HAMDAN STREET, ", "ABU DHABI, UAE"];
+const map =
+  "https://www.google.com/maps?q=24.49088478088379,54.36382293701172&z=17&hl=en";
 const phone = "+971 5477 06299";
 const email = "info@yelmas.ae";
 const whatsapp =
@@ -308,6 +310,22 @@ export default function Home() {
                   <p className="text-base text-[#333333]">{location}</p>
                 </div>
               </div>
+              <div
+                className="flex items-center pb-4 gap-4 cursor-pointer"
+                onClick={() => window.open(map, "_blank")}
+              >
+                <div className="w-12 h-12 bg-[#F5F5F5] flex items-center justify-center text-[#8E8B82]">
+                  <Map className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-wider text-[#8E8B82] font-semibold">
+                    VIEW ON MAP
+                  </p>
+                  <div className="flex gap-1 items-center font-bold text-xs text-[#333333] cursor-pointer">
+                    Click here
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -402,6 +420,13 @@ export default function Home() {
                   <li key={k}>{row}</li>
                 ))}
               </ul>
+              <div
+                className="flex gap-1 items-center font-bold text-xs text-neutral-300 cursor-pointer"
+                onClick={() => window.open(map, "_blank")}
+              >
+                <Map size={16} />
+                View on map
+              </div>
             </div>
 
             {/* INQUIRIES */}
